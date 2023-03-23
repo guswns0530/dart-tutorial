@@ -8,6 +8,14 @@ void main() {
   ColorPointDrawer cpDrawer = ColorPointDrawer(x: 5, y: 20);
   cpDrawer.flagActivated = false;
   cpDrawer.printStr();
+
+  // print(getId(Person("Person")));
+  print(getId(Student("Student", 2335013)));
+  print(getId(Professor("Professor", "#QA")));
+
+  print('42'.parseInt());
+  print('42.123123'.parseDouble());
+
 }
 
 class ColorPointDrawer extends ColorPoint with ActivationFlag {
@@ -25,3 +33,29 @@ mixin ActivationFlag {
   set flagActivated(flag) => this.flag = flag;
 
 }
+
+abstract class Person {
+  var _name;
+
+  String id();
+}
+
+class Student implements Person {
+  var _name;
+
+  @override
+  String id() => '$_name:$_studentNumber';
+
+  var _studentNumber;
+  Student(this._name, this._studentNumber);
+}
+
+class Professor implements Person {
+  var _name;
+  String id() => '$_name:$_professorNumber';
+
+  var _professorNumber;
+  Professor(this._name, this._professorNumber);
+}
+
+String getId(Person person) => person.id();

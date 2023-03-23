@@ -87,3 +87,13 @@ void main() {
 
   (cPoint + ColorPoint.defaultColorPoint(x: 55, y: 55)).printStr();
 }
+
+extension NumberParsing_v1 on String {
+  int parseInt() {
+    return int.parse(this);
+  }
+
+  double parseDouble() {
+    return double.parse(this);
+  }
+}
